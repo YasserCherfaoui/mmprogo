@@ -18,12 +18,14 @@ type Config struct {
 }
 
 func LoadConfig() *Config {
-	// Load .env file
-	err := godotenv.Load()
-	if err != nil {
-		// If .env file doesn't exist, we'll use default values
-		// This allows the application to still work with environment variables
-		// set directly in the system
+	// Load .env file only in development mode
+	if os.Getenv("ENV") != "production" {
+		err := godotenv.Load()
+		if err != nil {
+			// If .env file doesn't exist, we'll use default values
+			// This allows the application to still work with environment variables
+			// set directly in the system
+		}
 	}
 
 	dbPort, _ := strconv.Atoi(getEnv("DB_PORT", "5432"))
