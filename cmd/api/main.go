@@ -42,6 +42,12 @@ func main() {
 			auth.POST("/refresh", handlers.RefreshToken)
 		}
 
+		// Product routes
+		products := api.Group("/products")
+		{
+			products.GET("", handlers.GetProducts)
+		}
+
 		// Protected routes
 		protected := api.Group("")
 		protected.Use(middleware.Auth())
@@ -56,7 +62,6 @@ func main() {
 			// Product routes
 			products := protected.Group("/products")
 			{
-				products.GET("", handlers.GetProducts)
 				products.GET("/:id", handlers.GetProduct)
 				products.POST("", handlers.CreateProduct)
 				products.PUT("/:id", handlers.UpdateProduct)
