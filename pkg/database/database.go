@@ -37,8 +37,8 @@ func InitDB(cfg *config.Config) error {
 
 	// Auto migrate all models
 	err = DB.AutoMigrate(
-		&models.User{},
 		&models.Company{},
+		&models.User{},
 		&models.Address{},
 		&models.Product{},
 		&models.ProductImage{},

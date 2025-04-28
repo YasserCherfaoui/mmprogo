@@ -26,6 +26,7 @@ const (
 	PaymentStatusRefunded PaymentStatus = "REFUNDED"
 )
 
+// TODO: RFQ - Request for Quote
 type Order struct {
 	gorm.Model
 	OrderNumber    string        `gorm:"uniqueIndex;not null" json:"order_number"`
