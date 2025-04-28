@@ -1,0 +1,1 @@
+ERROR: 2025/04/28 11:41:48 product.go:115: Failed to create product: ERROR: duplicate key value violates unique constraint "idx_products_sku" (SQLSTATE 23505)
